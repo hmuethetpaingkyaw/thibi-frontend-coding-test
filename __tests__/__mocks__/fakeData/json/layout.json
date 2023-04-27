@@ -1,0 +1,25 @@
+{
+  "logo": {
+    "desktop": "/workflow-mark.svg",
+    "mobile": "/workflow-mark.svg",
+    "alt": "Tailwind Logo"
+  },
+  "locales": ["en", "mm"],
+  "defaultLocale": "en",
+  "navBar": {
+    "bgColor": "current",
+    "textColor": "white",
+    "menuItems": [
+      {
+        "id": "home",
+        "displayName": "Home",
+        "link": "/"
+      },
+      {
+        "id": "about",
+        "displayName": "About",
+        "link": "/"
+      }
+    ]
+  }
+}

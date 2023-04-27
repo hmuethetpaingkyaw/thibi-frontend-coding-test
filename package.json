@@ -1,0 +1,100 @@
+{
+  "private": true,
+  "engines": {
+    "node": "18.x",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.x"
+  },
+  "scripts": {
+    "analyze": "ANALYZE=true yarn build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --verbose --watchAll=true",
+    "test:ci": "jest --ci --verbose",
+    "test:coverage": "jest --verbose --coverage --coverageDirectory",
+    "test:load": "k6 run ./k6/loadTest.js",
+    "test:requests": "k6 run ./k6/requestsTest.js",
+    "test:stress": "k6 run ./k6/stressTest.js",
+    "test:soak": "k6 run ./k6/soakTest.js",
+    "test:smoke": "k6 run ./k6/smokeTest.js",
+    "format": "prettier -w src",
+    "format:check": "prettier -c src",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
+  },
+  "dependencies": {
+    "next": "^12.2.5",
+    "next-pwa": "5.5.4",
+    "next-translate": "^1.5.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^1.0.6",
+    "@next/bundle-analyzer": "^12.2.5",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/addon-postcss": "2.0.0",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/react": "^6.5.10",
+    "@storybook/testing-library": "^0.0.13",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "13.2.0",
+    "@testing-library/user-event": "14.2.0",
+    "@types/gtag.js": "^0.0.10",
+    "@types/react": "18.0.9",
+    "autoprefixer": "^10.4.8",
+    "babel-loader": "^8.2.5",
+    "cypress": "^10.6.0",
+    "eslint": "^8.22.0",
+    "eslint-config-next": "^12.2.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.4",
+    "eslint-plugin-testing-library": "^5.6.0",
+    "husky": "^8.0.1",
+    "jest": "28.1.0",
+    "jest-environment-jsdom": "28.1.0",
+    "k6": "^0.0.0",
+    "lint-staged": "^13.0.3",
+    "local-cypress": "^1.2.6",
+    "postcss": "^8.4.16",
+    "start-server-and-test": "^1.14.0",
+    "storybook-addon-next-router": "^4.0.0",
+    "storybook-css-modules-preset": "^1.1.1",
+    "tailwindcss": "^3.1.8",
+    "typescript": "4.6.4"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,}": [
+      "eslint",
+      "prettier -w"
+    ],
+    "src/**/*.{css,scss,md}": [
+      "prettier -w"
+    ]
+  }
+}
