@@ -7,7 +7,7 @@ const layoutConfig = {
   locales: ["en", "mm"], // Get from i18n.json
   defaultLocale: "en", // Get from i18n.json
   navBar: {
-    bgColor: 'primary',
+    bgColor: 'accent',
     textColor: 'white',
     menuItems: [
       {

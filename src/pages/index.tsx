@@ -8,8 +8,7 @@ export default function Home() {
       <Layout>
         <div className="h-full bg-slate-300 p-28">
           <div className="container px-4 mx-auto">
-            <h1 className="text-2xl">{t('hello')}</h1>
-            <p className="mt-4">{t('dummy-text')}</p>
+            <p className="mt-4">Implement Glossary data Here</p>
           </div>
         </div>
       </Layout>
