@@ -15,7 +15,7 @@ const layoutConfig = {
         displayName: 'Home',
         link: '/',
       },
-      {
+      { 
         id: 'about',
         displayName: 'About',
         link: '/',

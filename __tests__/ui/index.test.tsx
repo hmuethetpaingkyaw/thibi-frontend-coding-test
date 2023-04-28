@@ -4,40 +4,56 @@ import commonEN from '../../locales/en/common.json';
 import Home from '../../src/pages/index';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}));
 
 describe('Pages/index', () => {
   it('Home/Index Page shows header/footer correctly', async () => {
-    const router = { push: jest.fn() };
-    useRouter.mockReturnValue(router);
+    useRouter.mockImplementation(() => ({
+      query: { myParam: 'A' },
+    }));
     render(
       <I18nProvider lang="en" namespaces={{ common: commonEN }}>
         <Home />
       </I18nProvider>
     );
 
-    const englishNavText = screen.getByText(/english/i);
+    const englishNavText = screen.getByText(/English/i);
     const burmeseNavText = screen.getByText(/မြန်မာ/i);
-    const footerText = screen.getByText(/all right reserved\. blah blah blah/i);
+    const footerText = screen.getByText(/© 2023, All Rights Reserved./i);
     expect(englishNavText).toBeInTheDocument();
     expect(burmeseNavText).toBeInTheDocument();
     expect(footerText).toBeInTheDocument();
   });
 
-  it('Home/Index Page Layout has correct heading and content', async () => {
-    const router = { push: jest.fn() };
-    useRouter.mockReturnValue(router);
+  it('Home/Index Page Layout has correct link to filter', async () => {
+    useRouter.mockImplementation(() => ({
+      query: { myParam: 'A' },
+    }));
     render(
       <I18nProvider lang="en" namespaces={{ common: commonEN }}>
         <Home />
       </I18nProvider>
     );
+    const link = screen.getByText('A');
 
-    const heading = screen.getByRole('heading', { name: /hello world/i });
-    const content = screen.getByText(
-      /lorem ipsum dolor, sit amet consectetur adipisicing elit\. voluptates omnis natus temporibus magnam nisi at nostrum commodi ea autem, error dolores laboriosam ipsam maxime corporis quae, reprehenderit ipsum quasi harum!/i
+    expect(link.getAttribute('href')).toBe('/A');
+  });
+
+  it('Home/Index Page Layout has alphabets from A to Z', async () => {
+    useRouter.mockImplementation(() => ({
+      query: { myParam: '' },
+    }));
+    render(
+      <I18nProvider lang="en" namespaces={{ common: commonEN }}>
+        <Home />
+      </I18nProvider>
     );
+    const alphabet_A = screen.getByText('A');
+    const alphabet_Z = screen.getByText('Z');
 
-    expect(heading).toBeInTheDocument();
-    expect(content).toBeInTheDocument();
+    expect(alphabet_A).toBeInTheDocument();
+    expect(alphabet_Z).toBeInTheDocument();
   });
 });

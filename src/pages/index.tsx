@@ -1,17 +1,23 @@
-import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/Layout';
+import useGlossary from '@/hooks/useGlossary';
+import { useEffect } from 'react';
+import { Alphabets } from '@/components/Glossary/Alphabets';
+import { GlossaryCard } from '@/components/Glossary/GlossaryCard';
+import useTranslation from 'next-translate/useTranslation';
+import { GlossaryPageLayout } from '@/components/Glossary/GlossaryPageLayout';
+import Loading from '@/components/Loading';
+import { useGlossaryType } from '@/types/Glossary';
 
 export default function Home() {
-  const { t } = useTranslation('common');
+  const { state, fetchGlossaries } : useGlossaryType = useGlossary();
+
+  useEffect(() => {
+    fetchGlossaries();
+  }, []);
+
   return (
-    <>
-      <Layout>
-        <div className="h-full bg-slate-300 p-28">
-          <div className="container px-4 mx-auto">
-            <p className="mt-4">Implement Glossary data Here</p>
-          </div>
-        </div>
-      </Layout>
-    </>
+    <GlossaryPageLayout>
+      {state.loading ? <Loading /> : <GlossaryCard data={state.glossaries} />}
+    </GlossaryPageLayout>
   );
 }

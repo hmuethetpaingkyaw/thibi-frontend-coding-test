@@ -19,7 +19,7 @@ describe('Components/Navbar', () => {
       </I18nProvider>
     );
 
-    const englishNavText = screen.getByText(/english/i);
+    const englishNavText = screen.getByText(/English/i);
     const burmeseNavText = screen.getByText(/မြန်မာ/i);
 
     expect(englishNavText).toBeInTheDocument();

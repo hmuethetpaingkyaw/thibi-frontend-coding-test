@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         primary: '#3354F8',
         accent: '#333745',
-      }
+      },
+     
     },
   },
   plugins: [],
