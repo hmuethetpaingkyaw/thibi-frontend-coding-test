@@ -1,5 +1,12 @@
-const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache');
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+});
+
 const nextTranslate = require('next-translate-plugin');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -9,13 +16,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = nextTranslate(
   withBundleAnalyzer(
     withPWA({
-      pwa: {
-        dest: 'public',
-        //disable: process.env.NODE_ENV === 'development',
-        register: true,
-        skipWaiting: true,
-        runtimeCaching,
-      },
+      // pwa: {
+
+      // },
       // images: {
       //   domains: ['tailwindui.com'],
       // },
