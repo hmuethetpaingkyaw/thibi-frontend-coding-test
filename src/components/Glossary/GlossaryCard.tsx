@@ -7,7 +7,7 @@ type Props = {
   data: Glossary[];
 };
 export const GlossaryCard: FC<Props> = ({ data }) => {
-  const { lang } = useTranslation();
+  const { t, lang } = useTranslation('common');
   const router = useRouter();
 
   return (
@@ -17,22 +17,26 @@ export const GlossaryCard: FC<Props> = ({ data }) => {
           {router.query.filter ? router.query.filter : '#'}
         </div>
         <div className="p-4 md:p-8">
-          <ul className="space-y-4 md:space-y-8">
-            {data?.map((glossary: Glossary, index: number) => (
-              <li key={`${glossary}${index}`}>
-                <div className="px-4 md:px-8 space-y-4">
-                  <span className="font-semibold underline decoration-gray-400 ">
-                    {glossary.attributes?.en_term}
-                  </span>
-                  <p className="text-gray-500">
-                    {lang === 'mm'
-                      ? glossary.attributes?.mm_term
-                      : glossary.attributes?.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          {data.length > 0 ? (
+            <ul className="space-y-4 md:space-y-8">
+              {data?.map((glossary: Glossary, index: number) => (
+                <li key={`${glossary}${index}`}>
+                  <div className="px-4 md:px-8 space-y-4">
+                    <span className="font-semibold underline decoration-gray-400 ">
+                      {glossary.attributes?.en_term}
+                    </span>
+                    <p className="text-gray-500">
+                      {lang === 'mm'
+                        ? glossary.attributes?.mm_term
+                        : glossary.attributes?.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className='text-center'>{t('no-data')}</div>
+          )}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ export const GlossaryPageLayout: FC<Props> = ({ children }) => {
       <Layout>
         <div className="h-100 px-10 py-20 lg:px-28 flex flex-col content-between  space-y-10">
           <p className="mt-4 text-center font-semibold text-xl">ဝေါဟာရ</p>
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-sm text-gray-500 leading-7">
             သတင်းအချက်အလက်တွေကို နည်းပညာအသုံးပြုပြီး သိမ်းဆည်းခြင်း၊ ရယူခြင်း၊ အသုံးချခြင်းလို့
             အဓိပ္ပာယ် ဖွင့်ဆိုနိုင်ပါတယ်။
           </p>

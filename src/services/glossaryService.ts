@@ -5,6 +5,6 @@ export async function getAll() {
     let response = await getData(`glossaries`);
     return response.data;
   } catch (e) {
-    return false;
+    throw e;
   }
 }

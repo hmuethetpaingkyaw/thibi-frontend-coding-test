@@ -2,5 +2,6 @@
   "hello": "Hello world",
   "en" : "English",
   "mm" : "မြန်မာ",
+  "no-data" : "There is no glossary data to show",
   "dummy-text" : "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates omnis natus temporibus magnam nisi at nostrum commodi ea autem, error dolores laboriosam ipsam maxime corporis quae, reprehenderit ipsum quasi harum!"
 }

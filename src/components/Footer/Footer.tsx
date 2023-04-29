@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <div className="py-6 bg-accent">
-      <div className="container flex items-center justify-between  px-4 mx-auto sm:px-6 lg:px-8">
+    <div className="py-6 bg-[#2C2C2C]">
+      <div className="container flex items-center justify-between  px-4 mx-auto sm:px-6 lg:px-8 mb-3">
         <div className="flex-shrink-0">
           <img
             className="block w-auto h-8 lg:hidden"
@@ -25,7 +25,9 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className=" text-center text-sm flex-end text-white">© 2023, All Rights Reserved.</div>
+      <div className=" text-center text-xs md:text-sm flex-end text-white">
+        © 2023, All Rights Reserved.
+      </div>
     </div>
   );
 };

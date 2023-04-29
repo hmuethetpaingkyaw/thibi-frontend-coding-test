@@ -1,10 +1,10 @@
-import { getAlphabet } from '@/utils/getAlphabet';
+import { getAlphabets } from '@/utils/getAlphabets';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { FC } from 'react';
 
 export const Alphabets: FC = () => {
-  const alphabet: string[] = getAlphabet();
+  const alphabets: string[] = getAlphabets();
   const router = useRouter();
 
   return (
@@ -14,7 +14,7 @@ export const Alphabets: FC = () => {
           <li
             className={`md:mr-4 px-4 md:px-0 inline-block md:inline 
             ${
-              router.pathname === '/'
+              !router.query.filter
                 ? 'text-blue-600 underline decoration-gray-500'
                 : 'text-gray-400'
             }
@@ -23,18 +23,18 @@ export const Alphabets: FC = () => {
             <Link href={`/`}>#</Link>
           </li>
 
-          {alphabet.map((letter) => (
+          {alphabets.map((alphabet) => (
             <li
-              key={letter}
+              key={alphabet}
               className={`md:mr-4 px-4 md:px-0 inline-block md:inline 
                 ${
-                  router.query.filter === letter
+                  router.query.filter === alphabet
                     ? 'text-blue-600 underline decoration-gray-500'
                     : 'text-gray-400'
                 }
                  hover:text-blue-600 hover:underline hover:decoration-gray-500`}
             >
-              <Link href={`/${letter}`}>{letter}</Link>
+              <Link href={`?filter=${alphabet}`}>{alphabet}</Link>
             </li>
           ))}
         </ul>

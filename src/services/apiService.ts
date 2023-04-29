@@ -5,7 +5,7 @@ const headers = {
   Accept: 'application/json',
 };
 
-export async function getData(url : string, params? : any) {
+export async function getData(url: string, params?: any) {
   axios.defaults.headers = headers;
   let response = await axios.get(`${apiEndpoint}${url}`, { params: params });
   return response.data;

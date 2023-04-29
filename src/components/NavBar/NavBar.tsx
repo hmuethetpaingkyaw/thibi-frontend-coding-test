@@ -24,7 +24,7 @@ export interface INavBar {
 
 const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
   return (
-    <Disclosure as="nav" className={`bg-${bgColor}`}>
+    <Disclosure as="nav" className={`bg-[${bgColor}]`}>
       {({ open }) => (
         <>
           <div className="container px-4 mx-auto sm:px-6 lg:px-8">

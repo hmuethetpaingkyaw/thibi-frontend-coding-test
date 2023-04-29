@@ -1,7 +1,0 @@
-export const getAlphabet = (): string[] => {
-  const letters: string[] = [];
-  for (let i = 65; i <= 90; i++) {
-    letters.push(String.fromCharCode(i));
-  }
-  return letters;
-};

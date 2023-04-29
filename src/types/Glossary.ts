@@ -19,6 +19,10 @@ export type GlossaryStateType = {
 
 export type useGlossaryType = {
   state: GlossaryStateType;
-  filteredGlossaries?: (letter: string) => void;
-  fetchGlossaries?: () => void;
+  fetchGlossaries: (filteredAlphabet?: string | undefined) => void;
+};
+
+export type GlossaryActionType = {
+  type: 'SET_GLOSSARY';
+  payload: { data: Glossary[] };
 };

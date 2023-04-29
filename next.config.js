@@ -1,4 +1,4 @@
-const withPWA = require('next-pwa');
+const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache');
 const nextTranslate = require('next-translate-plugin');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -11,7 +11,7 @@ const nextConfig = nextTranslate(
     withPWA({
       pwa: {
         dest: 'public',
-        disable: process.env.NODE_ENV === 'development',
+        //disable: process.env.NODE_ENV === 'development',
         register: true,
         skipWaiting: true,
         runtimeCaching,
