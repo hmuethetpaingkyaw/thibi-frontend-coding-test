@@ -38,7 +38,7 @@ describe('Pages/index', () => {
     );
     const link = screen.getByText('A');
 
-    expect(link.getAttribute('href')).toBe('/A');
+    expect(link.getAttribute('href')).toBe('/?filter=A');
   });
 
   it('Home/Index Page Layout has alphabets from A to Z', async () => {

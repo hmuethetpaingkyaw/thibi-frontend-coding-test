@@ -34,7 +34,7 @@ export const Alphabets: FC = () => {
                 }
                  hover:text-blue-600 hover:underline hover:decoration-gray-500`}
             >
-              <Link href={`?filter=${alphabet}`}>{alphabet}</Link>
+              <Link href={`/?filter=${alphabet}`}>{alphabet}</Link>
             </li>
           ))}
         </ul>

@@ -1,10 +1,10 @@
 export const getAlphabets = (): string[] => {
   const alphabets: string[] = [];
-  const bitsNumberA = 65;
-  const bitsNumberZ = 90;
+  const charCodeForA = 65;
+  const charCodeForZ = 90;
 
-  for (let i = bitsNumberA; i <= bitsNumberZ; i++) {
-    const alphabet = String.fromCharCode(i);
+  for (let alphabetCharCode = charCodeForA; alphabetCharCode <= charCodeForZ; alphabetCharCode++) {
+    const alphabet = String.fromCharCode(alphabetCharCode);
     alphabets.push(alphabet);
   }
   return alphabets;
