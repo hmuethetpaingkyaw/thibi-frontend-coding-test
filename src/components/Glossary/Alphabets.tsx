@@ -10,7 +10,7 @@ export const Alphabets: FC = () => {
   return (
     <div className="flex justify-center">
       <div className="md:flex overflow-x-scroll whitespace-nowrap lg:overflow-hidden lg:whitespace-wrap">
-        <ul className="md:mx-4 md:flex md:flex-row inline-block md:inline">
+        <ul className="md:mx-4 md:flex md:flex-row inline-block md:inline py-4">
           <li
             className={`md:mr-4 px-4 md:px-0 inline-block md:inline 
             ${
